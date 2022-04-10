@@ -10,11 +10,15 @@ inputs:
   git_user:
     description: 'The name of the git user'
     required: true
-    default: 'thelastproject/keep-remote-locally-up-to-date'
+    default: 'github-action'
   git_email:
     description: 'The email of the git user'
     required: true
     default: 'no-reply@github.com'
+  git_brach:
+    description: 'The email of the git user'
+    required: false
+    default: 'master'
 outputs:
   status:
     description: 'If the file has changed'
