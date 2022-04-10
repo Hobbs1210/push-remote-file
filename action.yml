@@ -1,5 +1,6 @@
 name: 'Push remote file'
 description: 'Push remote file to repository'
+author: Habib Zaid <HabibZaid@gmail.com>
 inputs:
   url:
     description: 'The url of the file to download'
