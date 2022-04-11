@@ -13,18 +13,20 @@ commit_user_email ="${10}"
 commit_author="${11}"
 commit_message="${12}"
 
-mkdir -p "$(dirname "$file_in_repo")"
-wget "$url" -O "$file_in_repo"
+mkdir -p "$(dirname "$file_in_repo")";
+wget "$url" -O "$file_in_repo";
 
-cd "$repository"
+cd "$repository";
 
-git checkout "$branch" --
+git checkout $branch --;
 
-git add "$add_options" "$file_pattern"
+git add ${add_options} "${file_pattern};
 
-git config user.name "$commit_user_name"
-git config user.email "$commit_user_email"
+git config user.name "$commit_user_name";
+git config user.email "$commit_user_email";
 
-git commit -m "$commit_message" --author="$commit_author" "$commit_options"
+commit_options_array=( $commit_options );
+git commit -m "$commit_message" --author="$commit_author" ${commit_options:+"${commit_options_array[@]}"};
 
-git push origin "$push_options"
+push_options_array = ( $push_options );
+git push origin ${push_options:+"${push_options_array[@]}"};
