@@ -20,7 +20,7 @@ cd "$repository";
 
 git checkout $branch --;
 
-git add ${add_options} "${file_pattern};
+git add ${add_options} ${file_pattern};
 
 git config user.name "$commit_user_name";
 git config user.email "$commit_user_email";
