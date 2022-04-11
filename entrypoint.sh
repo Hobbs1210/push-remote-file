@@ -29,11 +29,16 @@ git config user.name "$commit_user_name";
 git config user.email "$commit_user_email";
 
 echo "::debug::Apply commit options ${commit_options}";
+
+# shellcheck disable=SC2206
 commit_options_array=( $commit_options );
+
 git commit -m "$commit_message" --author="$commit_author" ${commit_options:+"${commit_options_array[@]}"};
 
+echo "::debug::Apply push options ${push_options}";
+
+# shellcheck disable=SC2206
 push_options_array = ( $push_options );
 
-echo "::debug::Apply push options ${push_options}";
 echo "::debug::git push origin";
 git push origin ${push_options:+"${push_options_array[@]}"};
