@@ -25,8 +25,8 @@ git checkout $branch --;
 echo "::debug::Apply add options ${add_options}";
 git add ${add_options} ${file_pattern};
 
-git config user.name "$commit_user_name";
-git config user.email "$commit_user_email";
+git config --global user.name "$commit_user_name";
+git config --global user.email "$commit_user_email";
 
 echo "::debug::Apply commit options ${commit_options}";
 git commit -m "$commit_message" --author="$commit_author" ${commit_options};
