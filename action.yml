@@ -8,18 +8,34 @@ inputs:
   file_in_repo:
     description: 'The location of the file in the repository to update if changed'
     required: true
-  git_user:
-    description: 'The name of the git user'
-    required: true
-    default: 'github-action'
-  git_email:
-    description: 'The email of the git user'
-    required: true
-    default: 'no-reply@github.com'
-  git_brach:
-    description: 'The email of the git user'
+  branch:
+    description: Git branch name, where changes should be pushed too. Required if Action is used on the `pull_request` event
     required: false
-    default: 'master'
+    default: ${{ github.head_ref }}
+  commit_options:
+    description: Commit options (eg. --no-verify)
+    required: false
+    default: ''
+  add_options:
+    description: Add options (eg. -u)
+    required: false
+    default: ''
+  commit_user_name:
+    description: Name used for the commit user
+    required: false
+    default: GitHub Actions
+  commit_user_email:
+    description: Email address used for the commit user
+    required: false
+    default: actions@github.com
+  commit_author:
+    description: Value used for the commit author. Defaults to the username of whoever triggered this workflow run.
+    required: false
+    default: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+  push_options:
+    description: Push options (eg. --force)
+    required: false
+    default: ''
 outputs:
   status:
     description: 'If the file has changed'
