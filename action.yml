@@ -8,6 +8,10 @@ inputs:
   file_in_repo:
     description: 'The location of the file in the repository to update if changed'
     required: true
+  repository:
+    description: Local file path to the git repository. Defaults to the current directory (`.`)
+    required: false
+    default: '.'
   branch:
     description: Git branch name, where changes should be pushed too. Required if Action is used on the `pull_request` event
     required: false
@@ -49,6 +53,7 @@ runs:
   args:
     - ${{ inputs.url }}
     - ${{ inputs.file_in_repo }}
+    - ${{ inputs.repository }}
     - ${{ inputs.branch }}
     - ${{ inputs.commit_options }}
     - ${{ inputs.add_options }}
