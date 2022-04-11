@@ -12,11 +12,10 @@ commit_user_email ="$9"
 commit_author="$10"
 
 mkdir -p "$(dirname "$file_in_repo")"
-wget "$url" -O "$file_in_repo"
-
-cd "$file_in_repo"
 
 git checkout "$branch" --
+
+wget "$url" -O "$file_in_repo"
 
 git add "$add_options" "$file_pattern"
 
